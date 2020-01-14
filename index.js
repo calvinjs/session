@@ -24,6 +24,7 @@ module.exports = (opts = {
       jar.set(cookie, qs.stringify(_session), options);
       return req.session;
     }
+    req.session.delete = (key) => delete _session[key];
     req.session.reset = () => {
       _session = {};
       jar.set(cookie, qs.stringify(_session), options);
